@@ -22,3 +22,9 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'showLoginForm']);
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/sign-up', [AuthController::class, 'showSignUpForm'])->name('sign-up.form');
+Route::post('/sign-up', [AuthController::class, 'signUp'])->name('sign-up.submit');
+
+Route::get('/google-auth', [AuthController::class, 'redirectToGoogleAuth']);
+Route::get('/oauth_callback_Google', [AuthController::class, 'handleGoogleCallback']);

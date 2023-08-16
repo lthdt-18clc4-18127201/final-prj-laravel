@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Validator;
+
 
 class AuthController extends Controller
 {
-    // Login methods
+    //----------------------------------------------------------------Login methods----------------------------------------------------------------
     public function showLoginForm()
     {
         return view('login');
@@ -33,7 +34,7 @@ class AuthController extends Controller
         }
     }
 
-    //Sign up methods
+    //----------------------------------------------------------------Sign up methods----------------------------------------------------------------
      public function showSignUpForm()
     {
         return view('Sign up');
@@ -124,5 +125,68 @@ class AuthController extends Controller
         ]);
 
         return Response::json(['message' => 'Sign up successful'], 201);
+    }
+
+    //----------------------------------------------------------------Google OAuth method----------------------------------------------------------------
+    public function redirectToGoogleAuth()
+    {
+        $authURL = 'https://accounts.google.com/o/oauth2/auth';
+        $params = [
+            'response_type' => 'code',
+            'client_id' => env('GOOGLE_CLIENT_ID'),
+            'redirect_uri' => env('GOOGLE_REDIRECT_URI'),
+            'scope' => 'email profile',
+        ];
+        $authRedirect = $authURL . '?' . http_build_query($params);
+
+    return redirect($authRedirect);
+    }
+
+    public function handleGoogleCallback(Request $request)
+    {
+        $tokenEndpoint = 'https://accounts.google.com/o/oauth2/token';
+        $params = [
+            'code' => $request->query('code'),
+            'client_id' => env('GOOGLE_CLIENT_ID'),
+            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+            'redirect_uri' => env('GOOGLE_REDIRECT_URI'),
+            'grant_type' => 'authorization_code',
+        ];
+
+        $tokenResponse = Http::withOptions(['verify' => false])->post($tokenEndpoint, $params)->json();
+        $accessToken = $tokenResponse['access_token'];
+
+        $userInfoEndpoint = 'https://www.googleapis.com/oauth2/v2/userinfo';
+        $userInfo = Http::withToken($accessToken)->withOptions(['verify' => false])->get($userInfoEndpoint)->json();
+
+        // Query the MongoDB to check if the email is already present
+        $user = DB::connection('mongodb')->collection('Account')->where('Email', $userInfo['email'])->first();
+
+        if ($user) {
+            // Log the user in and return a successful message
+            return Response::json(['message' => 'Login successful'], 200);
+        } else {
+            // Insert the user into the MongoDB with a null password
+            DB::connection('mongodb')->collection('Account')->insert([
+                'Email' => $userInfo['email'],
+                'Nickname' => 'John Doe',
+                'Description' => 'Nice to meet you~',
+                'Following' => 0,
+                'Follower' => 0,
+                'Password' => null,
+                'career' => [
+                [
+                    'ID' => 0,
+                    'company' => 'John Doe Inc',
+                    'position' => 'CEO',
+                    'start_date' => '1970-12-30',
+                    'end_date' => '1972-01-15'
+                ],
+            ]
+            ]);
+
+            // Log the user in and return a successful message
+            return Response::json(['message' => 'Sign up and login successful'], 200);
+        }
     }
 }
