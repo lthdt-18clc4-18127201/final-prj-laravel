@@ -189,4 +189,46 @@ class AuthController extends Controller
             return Response::json(['message' => 'Sign up and login successful'], 200);
         }
     }
+
+    public function handleGoogleCallbackAPI(Request $request)
+    {
+        $tokenEndpoint = 'https://accounts.google.com/o/oauth2/token';
+        $params = [
+            'code' => $request->input('code'),
+            'client_id' => env('GOOGLE_CLIENT_ID'),
+            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+            'redirect_uri' => env('GOOGLE_REDIRECT_URI'),
+            'grant_type' => 'authorization_code',
+        ];
+
+        try {
+            $tokenResponse = Http::post($tokenEndpoint, $params)->json();
+            $accessToken = $tokenResponse['access_token'];
+
+            $userInfoEndpoint = 'https://www.googleapis.com/oauth2/v2/userinfo';
+            $userInfo = Http::withToken($accessToken)->get($userInfoEndpoint)->json();
+
+            // Query the MongoDB to check if the email is already present
+            $user = DB::connection('mongodb')->collection('Account')->where('Email', $userInfo['email'])->first();
+
+            if ($user) {
+                // Log the user in and return a successful message
+                return response()->json(['message' => 'Login successful'], 200);
+            } else {
+                // Insert the user into the MongoDB with a null password
+                DB::connection('mongodb')->collection('Account')->insert([
+                    'Email' => $userInfo['email'],
+                    'Nickname' => 'John Doe', // Set a default nickname
+                    'Password' => null,
+                    'career' => [],
+                    // Other fields here...
+                ]);
+
+                // Log the user in and return a successful message
+                return response()->json(['message' => 'Sign up and login successful'], 200);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'HTTP request error: ' . $e->getMessage()], 500);
+        }
+    }
 }
