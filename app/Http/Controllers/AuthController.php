@@ -28,7 +28,17 @@ class AuthController extends Controller
 
 
         if ($user && $user['Password'] === $password) {
+            $expiration = time() + (24 * 60 *60); //token expiration - set as 24 hours
+
+            $payload = [ //token values
+                'email' => $email,
+                'exp' => $expiration,
+            ];
+            $Token = base64_encode(json_encode($payload));
+            setcookie('19CLC_Project_Token', $Token, $expiration, '/');
+
             return Response::json(['message' => 'Login successful'], 200);
+
         } else {
             return Response::json(['message' => 'Login failed'], 401);
         }
@@ -162,8 +172,19 @@ class AuthController extends Controller
         // Query the MongoDB to check if the email is already present
         $user = DB::connection('mongodb')->collection('Account')->where('Email', $userInfo['email'])->first();
 
+        // Log the user in and return a successful message
         if ($user) {
-            // Log the user in and return a successful message
+            
+            $email = $userInfo['email'];
+            $expiration = time() + (24 * 60 *60); //token expiration - set as 24 hours
+
+            $payload = [ //token values
+                'email' => $email,
+                'exp' => $expiration,
+            ];
+            $Token = base64_encode(json_encode($payload));
+            setcookie('19CLC_Project_Token', $Token, $expiration, '/');
+
             return Response::json(['message' => 'Login successful'], 200);
         } else {
             // Insert the user into the MongoDB with a null password
@@ -186,6 +207,15 @@ class AuthController extends Controller
             ]);
 
             // Log the user in and return a successful message
+            $email = $userInfo['email'];
+            $expiration = time() + (24 * 60 *60); //token expiration - set as 24 hours
+
+            $payload = [ //token values
+                'email' => $email,
+                'exp' => $expiration,
+            ];
+            $Token = base64_encode(json_encode($payload));
+            setcookie('19CLC_Project_Token', $Token, $expiration, '/');
             return Response::json(['message' => 'Sign up and login successful'], 200);
         }
     }
