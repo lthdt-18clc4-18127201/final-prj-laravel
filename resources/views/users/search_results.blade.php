@@ -6,7 +6,7 @@
     @if (count($users) > 0)
         <ul>
             @foreach ($users as $user)
-                <li>{{ $user->name }} - {{ $user->email }}</li>
+                <li>{{ $user['Nickname'] }} - {{ $user['Email'] }}</li>
             @endforeach
         </ul>
     @else

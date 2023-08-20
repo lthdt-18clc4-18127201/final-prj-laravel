@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -11,12 +12,13 @@ class UserController extends Controller
     {
         $query = $request->input('query');
 
-        // Query the database to find users matching the search query
-        $users = User::where('nickname', 'like', '%' . $query . '%')
-            ->orWhere('email', 'like', '%' . $query . '%')
+        $users = DB::connection('mongodb')->collection('Account')
+            ->where(function ($queryBuilder) use ($query) {
+                $queryBuilder->where('Nickname', 'like', '%' . $query . '%')
+                     ->orWhere('Email', 'like', '%' . $query . '%');
+            })
             ->get();
 
-        // Pass the users and the query back to the search results view
         return view('users.search_results', ['users' => $users, 'query' => $query]);
     }
 }
