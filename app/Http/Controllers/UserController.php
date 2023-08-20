@@ -12,7 +12,7 @@ class UserController extends Controller
         $query = $request->input('query');
 
         // Query the database to find users matching the search query
-        $users = User::where('name', 'like', '%' . $query . '%')
+        $users = User::where('nickname', 'like', '%' . $query . '%')
             ->orWhere('email', 'like', '%' . $query . '%')
             ->get();
 
