@@ -31,3 +31,5 @@ Route::post('/sign-up', [AuthController::class, 'signUp'])->name('sign-up.submit
 
 Route::get('/google-auth', [AuthController::class, 'redirectToGoogleAuth']);
 Route::get('/oauth_callback_Google', [AuthController::class, 'handleGoogleCallback']);
+
+Route::get('/leaderboard', [LeaderboardController::class, 'index']);
