@@ -17,7 +17,7 @@ class LeaderboardController extends Controller
         // // Fetch users' data from an API or database
         //  //$jsonPath = public_path('leaderboard.json');
         //  //$jsonData = File::get($jsonPath);
-        
+
         //  //$users = json_decode($jsonData, true);  
         // $users=Leaderboard::all();
         // $users=$users->toArray();
@@ -27,9 +27,9 @@ class LeaderboardController extends Controller
         // });
         // //$users = $users->sortByDesc('contributions');
         $users = DB::connection('mongodb')->collection('Account')
-        ->orderBy('Follower', 'desc')
-        ->limit(100)
-        ->get(); //get data as array
+            ->orderBy('Follower', 'desc')
+            ->limit(100)
+            ->get(); //get data as array
 
         // query data using for loop and i
         // for($i = 0; $i < 100; $i++){

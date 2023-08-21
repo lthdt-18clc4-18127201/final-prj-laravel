@@ -204,7 +204,7 @@ nav {
 }
 
 .search-btn {
-    background: url("./img/search-icon.svg") no-repeat center;
+    background: url("../img/search-icon.svg") no-repeat center;
     height: 24px;
     width: 24px;
     border: none;

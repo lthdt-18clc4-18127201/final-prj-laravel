@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LeaderboardController;
@@ -17,10 +17,12 @@ use App\Http\Controllers\LeaderboardController;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
 Route::get('/test', function () {
     return view('test');
 });

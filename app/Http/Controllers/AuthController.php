@@ -21,14 +21,14 @@ class AuthController extends Controller
     {
         $email = $request->input('email');
         $password = $request->input('password');
-        
+
 
         // Query the MongoDB
         $user = DB::connection('mongodb')->collection('Account')->where('Email', $email)->first();
 
 
         if ($user && $user['Password'] === $password) {
-            $expiration = time() + (24 * 60 *60); //token expiration - set as 24 hours
+            $expiration = time() + (24 * 60 * 60); //token expiration - set as 24 hours
 
             $payload = [ //token values
                 'email' => $email,
@@ -38,14 +38,13 @@ class AuthController extends Controller
             setcookie('19CLC_Project_Token', $Token, $expiration, '/');
 
             return Response::json(['message' => 'Login successful'], 200);
-
         } else {
             return Response::json(['message' => 'Login failed'], 401);
         }
     }
 
     //----------------------------------------------------------------Sign up methods----------------------------------------------------------------
-     public function showSignUpForm()
+    public function showSignUpForm()
     {
         return view('Sign up');
     }
@@ -149,7 +148,7 @@ class AuthController extends Controller
         ];
         $authRedirect = $authURL . '?' . http_build_query($params);
 
-    return redirect($authRedirect);
+        return redirect($authRedirect);
     }
 
     public function handleGoogleCallback(Request $request)
@@ -174,9 +173,9 @@ class AuthController extends Controller
 
         // Log the user in and return a successful message
         if ($user) {
-            
+
             $email = $userInfo['email'];
-            $expiration = time() + (24 * 60 *60); //token expiration - set as 24 hours
+            $expiration = time() + (24 * 60 * 60); //token expiration - set as 24 hours
 
             $payload = [ //token values
                 'email' => $email,
@@ -196,19 +195,19 @@ class AuthController extends Controller
                 'Follower' => 0,
                 'Password' => null,
                 'career' => [
-                [
-                    'ID' => 0,
-                    'company' => 'John Doe Inc',
-                    'position' => 'CEO',
-                    'start_date' => '1970-12-30',
-                    'end_date' => '1972-01-15'
-                ],
-            ]
+                    [
+                        'ID' => 0,
+                        'company' => 'John Doe Inc',
+                        'position' => 'CEO',
+                        'start_date' => '1970-12-30',
+                        'end_date' => '1972-01-15'
+                    ],
+                ]
             ]);
 
             // Log the user in and return a successful message
             $email = $userInfo['email'];
-            $expiration = time() + (24 * 60 *60); //token expiration - set as 24 hours
+            $expiration = time() + (24 * 60 * 60); //token expiration - set as 24 hours
 
             $payload = [ //token values
                 'email' => $email,
