@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+/* root */
+:root {
+    --grey: #94a3b8;
+}
+
 body {
     background: #080710;
     height: 100%;
@@ -28,7 +33,7 @@ header {
     margin: 0 30px;
 }
 
-.silde-loader {
+.slide-loader {
     display: flex;
     padding: 10px;
     background: #41a69a;
@@ -80,10 +85,12 @@ header {
     border-radius: 20px;
 }
 
+/* Updated styles for the create account container */
 .create-account {
     position: fixed;
     width: 100%;
-    height: 150px;
+    height: auto;
+    /* Allow height to adjust based on content */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -91,26 +98,48 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Add a semi-transparent background */
+    padding: 1rem;
 }
 
+/* Updated styles for the create account button */
 .btn-create {
-    padding: 10px 20px;
+    padding: 15px 40px;
     background-color: #ED6552;
     color: #fff;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease-in;
+    transition: background-color 0.3s ease-in, opacity 0.3s ease-in;
+    /* Add opacity transition */
     width: 300px;
     height: 60px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Uppercase text */
+    letter-spacing: 1px;
+    /* Adjust letter spacing for better readability */
 }
 
+/* Apply hover effect to the create account button */
 .btn-create:hover {
-    opacity: 0.8;
+    background-color: #e74c3c;
+    /* Slightly darker shade on hover */
+    opacity: 0.9;
+    /* Increase opacity on hover */
 }
+
+/* Apply focus effect to the create account button */
+.btn-create:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(237, 101, 82, 0.4);
+}
+
+
 
 footer {
     display: flex;
@@ -120,4 +149,158 @@ footer {
     flex-direction: column;
     background: #41a69a;
     position: relative;
+}
+
+
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Styles */
+html,
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+        "Malgun Gothic", sans-serif;
+    font-size: 12px;
+}
+
+.logo {
+    background: url('../img/logo.svg') no-repeat center;
+    height: 24px;
+    width: 94px;
+}
+
+nav>ul>* {
+    display: inline-block;
+}
+
+nav {
+    height: 55px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: baseline;
+}
+
+.nav-item {
+    padding: 0 8px;
+    align-self: center;
+}
+
+#navbar {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #fff;
+    border-bottom: 1px solid lightgray;
+}
+
+.nav-link {
+    font-weight: 500;
+    text-decoration: none;
+    padding: 16px 0;
+    color: black;
+}
+
+.active {
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 3px solid orange;
+    bottom: 0;
+}
+
+.nav-link:visited {
+    font-weight: 500;
+    color: grey;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+}
+
+.search-btn {
+    background: url("../img/search-icon.svg") no-repeat center;
+    height: 24px;
+    width: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.acc-menu-btn {
+    background: url("https://careerly.vn/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fimg_profile-dummy-f39ccb87481ab4a70525a9d2d461307d.png&w=48&q=75") no-repeat center;
+    background-size: contain;
+    height: 36px;
+    width: 36px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+#search-div {}
+
+.search-box {
+    padding: auto;
+    height: 125px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    /* max-width: 1024px; */
+    background-color: white;
+}
+
+.search-box .search-input {
+    font-size: x-large;
+    line-height: 1.5;
+    width: 600px;
+    border: none;
+}
+
+input[type="text"]:focus-visible {
+    outline: none;
+}
+
+#collapse-search-div {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    border-top: 1px solid lightgray;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+header {
+    z-index: 99;
+    position: fixed;
 }

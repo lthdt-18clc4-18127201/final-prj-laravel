@@ -19,6 +19,10 @@ use App\Http\Controllers\LeaderboardController;
 
 
 Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/homepage', function () {
     return view('homepage');
 });
 
