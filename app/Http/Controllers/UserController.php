@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -15,10 +15,22 @@ class UserController extends Controller
         $users = DB::connection('mongodb')->collection('Account')
             ->where(function ($queryBuilder) use ($query) {
                 $queryBuilder->where('Nickname', 'like', '%' . $query . '%')
-                     ->orWhere('Email', 'like', '%' . $query . '%');
+                    ->orWhere('Email', 'like', '%' . $query . '%');
             })
             ->get();
 
         return view('users.search_results', ['users' => $users, 'query' => $query]);
+    }
+
+    public function showProfile()
+    {
+        $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
+        $tokenData = json_decode(base64_decode($token), true);
+
+        $user = DB::connection('mongodb')->collection('Account')
+            ->where('Email', 'like', '%' . $tokenData['email'] . '%')
+            ->first();
+
+        return view('users.profile', compact('user'));
     }
 }

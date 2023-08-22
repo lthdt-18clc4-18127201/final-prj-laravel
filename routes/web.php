@@ -46,6 +46,6 @@ Route::get('/google-auth', [AuthController::class, 'redirectToGoogleAuth']);
 Route::get('/oauth_callback_Google', [AuthController::class, 'handleGoogleCallback']);
 
 Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
-Route::get('/users/index', [UserController::class, 'getUsers'])->name('users.index');
+Route::get('/users/profile', [UserController::class, 'showProfile'])->name('users.profile');
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index']);
