@@ -37,6 +37,32 @@ class AuthController extends Controller
             $Token = base64_encode(json_encode($payload));
             setcookie('19CLC_Project_Token', $Token, $expiration, '/');
 
+            return redirect('/login/success');
+        } else {
+            return redirect()->back()->withErrors(['login' => 'Login failed']);
+        }
+    }
+
+    public function login_api(Request $request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+
+        // Query the MongoDB
+        $user = DB::connection('mongodb')->collection('Account')->where('Email', $email)->first();
+
+
+        if ($user && $user['Password'] === $password) {
+            $expiration = time() + (24 * 60 * 60); //token expiration - set as 24 hours
+
+            $payload = [ //token values
+                'email' => $email,
+                'exp' => $expiration,
+            ];
+            $Token = base64_encode(json_encode($payload));
+            setcookie('19CLC_Project_Token', $Token, $expiration, '/');
+
             return Response::json(['message' => 'Login successful'], 200);
         } else {
             return Response::json(['message' => 'Login failed'], 401);
@@ -68,7 +94,7 @@ class AuthController extends Controller
         // Query the MongoDB to check if the email is already present
         $user = DB::connection('mongodb')->collection('Account')->where('Email', $email)->first();
         if ($user) {
-            return Response::json(['Email is already registered'], 400);
+            return redirect()->back()->withErrors(['signup' => 'Email is already registered']);
         }
 
         // Insert the user into the MongoDB (same code as before)
@@ -89,7 +115,7 @@ class AuthController extends Controller
                 ],
             ]
         ]);
-        return redirect('/login')->with('success', 'Sign up successful! You can now log in.');
+        return redirect('/signup/success');
     }
 
     public function signUp_api(Request $request)

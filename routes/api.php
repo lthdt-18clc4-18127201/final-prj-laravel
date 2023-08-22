@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login_api']);
 Route::post('/sign-up', [AuthController::class, 'signUp_api']);
 Route::post('/google/callback', [AuthController::class, 'handleGoogleCallbackAPI']);

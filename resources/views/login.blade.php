@@ -158,6 +158,12 @@
         .signup-link:hover {
             text-decoration: underline;
         }
+        .alert {
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #ff7675;
+        }
     </style>
 </head>
 
@@ -174,6 +180,11 @@
         <input type="text" placeholder="Email" name="email" id="username">
         <label for="password">Password</label>
         <input type="password" placeholder="Password" name="password" id="password">
+        @if ($errors->has('login'))
+            <div class="alert">
+                {{ $errors->first('login') }}
+            </div>
+        @endif
         <button type="submit">Log In</button>
         <div class="social">
             <div class="go"><i class="fab fa-google"></i> Google</div>

@@ -32,9 +32,15 @@ Route::get('/qna-post', function () {
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('log-in.form');
 Route::post('/login', [AuthController::class, 'login'])->name('log-in.submit');
+Route::get('/login/success', function () {
+    return view('login_success');
+});
 
 Route::get('/sign-up', [AuthController::class, 'showSignUpForm'])->name('sign-up.form');
 Route::post('/sign-up', [AuthController::class, 'signUp'])->name('sign-up.submit');
+Route::get('/signup/success', function () {
+    return view('signup_success');
+});
 
 Route::get('/google-auth', [AuthController::class, 'redirectToGoogleAuth']);
 Route::get('/oauth_callback_Google', [AuthController::class, 'handleGoogleCallback']);

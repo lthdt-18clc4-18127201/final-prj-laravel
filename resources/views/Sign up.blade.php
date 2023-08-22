@@ -140,6 +140,12 @@
       .signup-link:hover {
         text-decoration: underline;
       }
+      .alert {
+            margin-top: 10px;
+            margin-left: 5px;
+            font-size: 14px;
+            color: #ff7675;
+      }
     </style>
 </head>
 <body>
@@ -156,6 +162,11 @@
         <input type="password" placeholder="Password" name="password" id="password">
         <label for="password_confirmation">Confirm Password</label>
         <input type="password" placeholder="Retype Password" name="password_confirmation" id="password_confirmation">
+        @if ($errors->has('signup'))
+            <div class="alert">
+                {{ $errors->first('signup') }}
+            </div>
+        @endif
         <button type="submit">Sign up</button>
     </form>
 </body>
