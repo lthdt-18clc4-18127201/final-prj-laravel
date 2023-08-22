@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <title>Leaderboard</title>
     <style>
         body {

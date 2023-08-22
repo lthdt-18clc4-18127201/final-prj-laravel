@@ -1,3 +1,22 @@
+<script>
+    function logoutAndRedirect(){
+        document.cookie = '19CLC_Project_Token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        window.location.href = '/';
+    }
+</script>
+
+@php
+$token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
+$isLoggedin = false;
+
+if ($token) {
+    $tokenData = json_decode(base64_decode($token), true);
+    if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
+        $isLoggedin = true;
+    }
+}
+@endphp
+
 <header>
     <nav id="navbar">
         <ul class="nav-links">
@@ -37,10 +56,17 @@
 
     <!-- toggle account menu box -->
     <div id="acc-menu-div" style="display:none;">
-        <div class="box">Đăng nhập</div>
-        <div class="box">Đăng ký thành viên</div>
-        <div class="box">Hỗ trợ khách hàng</div>
-        <div id="collapse-account-menu-div">collapse menu account</div>
+        @if ($isLoggedin)
+            <div class="box"><a href="{{ route ('log-in.form') }}">Đăng nhập</a></div>
+            <div class="box"><a href="{{ route ('sign-up.form') }}">Đăng ký thành viên</a></div>
+            <div class="box">Hỗ trợ khách hàng</div>
+            <div id="collapse-account-menu-div">collapse menu account</div>
+        @else
+            <div class="box"><a href="#">Tài khoản</a></div>
+            <div class="box"><a href="#" onclick="logoutAndRedirect()">Đăng xuất</a></div>
+            <div class="box">Hỗ trợ khách hàng</div>
+            <div id="collapse-account-menu-div">collapse menu account</div>
+        @endif
     </div>
 
 </header>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <!-- Your head content here -->
 </head>
 <body>
-    @include('header') <!-- Including the header -->
+    @include('layouts.header') <!-- Including the header -->
 
     <h1>Test Page</h1>
     <p>This is a test page content.</p>
