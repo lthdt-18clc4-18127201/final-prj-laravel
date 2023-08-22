@@ -18,9 +18,8 @@ use App\Http\Controllers\LeaderboardController;
 */
 
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/', function () {
-    return view('home');
+    return view('homepage');
 });
 
 Route::get('/test', function () {

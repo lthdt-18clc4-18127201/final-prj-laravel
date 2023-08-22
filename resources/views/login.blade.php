@@ -179,7 +179,7 @@
             <div class="go"><i class="fab fa-google"></i> Google</div>
             <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
         </div>
-        <a class="signup-link" href="#">Don't have an account? Sign up</a>
+        <a class="signup-link" href="/sign-up">Don't have an account? Sign up</a>
     </form>
 </body>
 

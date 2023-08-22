@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080710;
+    height: 100%;
+    width: 100%;
+    background: #008489;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header-brand {
+    padding: 0 50px;
+}
+
+.personal-auth {
+    margin: 0 30px;
+}
+
+.silde-loader {
+    display: flex;
+    padding: 10px;
+    background: #41a69a;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.carousel-inner>.carousel-item>img {
+    width: 640px;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.features-item {
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+.feature-card {
+    width: 38rem;
+    height: 14rem;
+}
+
+.feature-content {
+    display: flex;
+    height: 190px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.feature-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    border-radius: 20px;
+}
+
+.create-account {
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.3s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-create {
+    padding: 10px 20px;
+    background-color: #ED6552;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in;
+    width: 300px;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-create:hover {
+    opacity: 0.8;
+}
+
+footer {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #41a69a;
+    position: relative;
+}
