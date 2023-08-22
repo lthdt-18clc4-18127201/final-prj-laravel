@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <!-- Your head content here -->
-</head>
-<body>
-    @include('layouts.header') <!-- Including the header -->
+@extends('layouts.app')
 
-    <h1>Test Page</h1>
-    <p>This is a test page content.</p>
+@section('title', 'Test page')
 
-    <!-- Your page content here -->
-</body>
-</html>
+@section('content')
+    {{-- <!-- dummy box -->
+    <div style="height: 120px;"></div> --}}
+    {{-- @include('users.search') <!-- Include the search form --> --}}
+
+    @if (isset($users))
+        @include('users.search_results') <!-- Include the search results -->
+    @endif
+
+
+    <div class="wrapper">
+        <h1>Test Page</h1>
+        <p>This is a test page content.</p>
+    </div>
+@endsection
