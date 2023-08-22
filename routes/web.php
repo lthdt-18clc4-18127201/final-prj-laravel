@@ -26,6 +26,10 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/qna-post', function () {
+    return view('qna-post');
+});
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('log-in.form');
 Route::post('/login', [AuthController::class, 'login'])->name('log-in.submit');
 

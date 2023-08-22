@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>@yield('title') - Your App Name</title> --}}
+    <title>@yield('title') - 19CLC</title>
 
-    <!-- Include your CSS and other head elements here -->
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <!-- Include CSS and other head elements -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    {{-- CSS file --}}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href=" @yield('css-path')">
+    {{-- Logo icon --}}
     <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
     <script src="{{ asset('js/home/home.js') }}"></script>
-    <title>Homepage</title>
 </head>
 
 <body>
@@ -38,7 +43,8 @@
     </div>
     <!-- end create account -->
 
-    <!-- Include your JavaScript at the bottom of the body -->
+    <!-- Include JavaScript at the bottom of the body -->
+    {{-- SEARCH BOX SCRIPT (NAVBAR) --}}
     <script>
         // toggling function
         function toggleSearch() {

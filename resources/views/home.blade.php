@@ -2,6 +2,10 @@
 
 @section('title', 'Home')
 
+@section('css-path')
+    {{ asset('css/home.css') }}
+@endsection
+
 @section('content')
     {{-- start search feature --}}
     @if (isset($users))

@@ -1,25 +1,25 @@
 <script>
-    function logoutAndRedirect(){
+    function logoutAndRedirect() {
         document.cookie = '19CLC_Project_Token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         window.location.href = '/';
     }
 </script>
 
 @php
-$token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
-$isLoggedin = false;
-
-if ($token) {
-    $tokenData = json_decode(base64_decode($token), true);
-    if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
-        $isLoggedin = true;
+    $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
+    $isLoggedin = false;
+    
+    if ($token) {
+        $tokenData = json_decode(base64_decode($token), true);
+        if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
+            $isLoggedin = true;
+        }
     }
-}
 @endphp
 
 <header>
     <nav id="navbar">
-        <ul class="nav-links">
+        <ul class="nav-links" style="margin-bottom: 0">
             <!-- home -->
             <li class="nav-item"><a class="nav-link" href="/">
                     <div class="logo"></div>
@@ -30,7 +30,7 @@ if ($token) {
             <li class="nav-item"><a class="nav-link active" href="#q&a">Q&A lập trình viên</a></li>
         </ul>
 
-        <ul class="nav-links">
+        <ul class="nav-links" style="margin-bottom: 0">
             <!-- search -->
             <li class="nav-item">
                 <button class="search-btn" type="button" value="Show search div" onclick="toggleSearch()" />
@@ -57,8 +57,8 @@ if ($token) {
     <!-- toggle account menu box -->
     <div id="acc-menu-div" style="display:none;">
         @if ($isLoggedin)
-            <div class="box"><a href="{{ route ('log-in.form') }}">Đăng nhập</a></div>
-            <div class="box"><a href="{{ route ('sign-up.form') }}">Đăng ký thành viên</a></div>
+            <div class="box"><a href="{{ route('log-in.form') }}">Đăng nhập</a></div>
+            <div class="box"><a href="{{ route('sign-up.form') }}">Đăng ký thành viên</a></div>
             <div class="box">Hỗ trợ khách hàng</div>
             <div id="collapse-account-menu-div">collapse menu account</div>
         @else
@@ -68,7 +68,6 @@ if ($token) {
             <div id="collapse-account-menu-div">collapse menu account</div>
         @endif
     </div>
-
 </header>
 
 <!-- dummy box -->
