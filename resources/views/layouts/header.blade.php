@@ -57,13 +57,15 @@
     <!-- toggle account menu box -->
     <div id="acc-menu-div" style="display:none;">
         @if ($isLoggedin)
+            <div class="box"><a href="#">Tài khoản</a></div>
+            <div class="box"><a href="#" onclick="logoutAndRedirect()">Đăng xuất</a></div>
             <div class="box"><a href="{{ route('log-in.form') }}">Đăng nhập</a></div>
             <div class="box"><a href="{{ route('sign-up.form') }}">Đăng ký thành viên</a></div>
             <div class="box">Hỗ trợ khách hàng</div>
             <div id="collapse-account-menu-div">collapse menu account</div>
         @else
-            <div class="box"><a href="#">Tài khoản</a></div>
-            <div class="box"><a href="#" onclick="logoutAndRedirect()">Đăng xuất</a></div>
+            <div class="box"><a href="{{ route ('log-in.form') }}">Đăng nhập</a></div>
+            <div class="box"><a href="{{ route ('sign-up.form') }}">Đăng ký thành viên</a></div>
             <div class="box">Hỗ trợ khách hàng</div>
             <div id="collapse-account-menu-div">collapse menu account</div>
         @endif

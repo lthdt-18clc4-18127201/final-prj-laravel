@@ -40,10 +40,7 @@
         th {
             background-color: #f2f2f2;
         }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+        tr{background-color: #f2f2f2}
 
         tr:hover {
             background-color: #ddd;
