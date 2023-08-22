@@ -3,14 +3,11 @@
 @section('title', 'Test page')
 
 @section('content')
-    {{-- <!-- dummy box -->
-    <div style="height: 120px;"></div> --}}
-    {{-- @include('users.search') <!-- Include the search form --> --}}
-
+    {{-- start search feature --}}
     @if (isset($users))
         @include('users.search_results') <!-- Include the search results -->
     @endif
-
+    {{-- end search feature --}}
 
     <div class="wrapper">
         <h1>Test Page</h1>
