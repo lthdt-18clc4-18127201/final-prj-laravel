@@ -1,42 +1,52 @@
+/* Update the wrapper background and alignment */
 .wrapper {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    background-color: #f3f4f6;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
+/* Redesigned profile card */
 .profile-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 500px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 400px;
     text-align: center;
+    transition: transform 0.2s;
 }
 
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Profile image */
 .profile-image {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
 }
 
+/* Profile name */
 .profile-name {
-    font-size: xx-large;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
 }
 
+/* Profile email */
 .profile-email {
-    color: #666;
-    margin-bottom: 2rem;
+    color: #777;
     text-decoration: none;
-    cursor: pointer;
+    font-size: 0.9rem;
 }
 
+/* Edit profile button */
 .edit-profile-button {
     background-color: #007bff;
     color: #fff;
@@ -44,27 +54,26 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
 }
 
 .edit-profile-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-.profile-name,
-.profile-image,
-.profile-email,
-.profile-description,
+/* Profile description */
+.profile-description {
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* Profile company */
 .profile-company {
-    padding: 0.5rem;
-}
-
-.profile-image,
-.profile-email,
-.profile-description,
-.profile-follower,
-.profile-following,
-.profile-company,
-.edit-profile-button {
-    font-size: medium;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 10px;
 }
