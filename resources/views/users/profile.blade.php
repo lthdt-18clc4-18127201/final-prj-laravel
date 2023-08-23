@@ -17,29 +17,25 @@
         <div class="profile-card">
             <img src="https://img.freepik.com/free-icon/user_318-159711.jpg" alt="User Profile" class="profile-image" />
             <div class="profile-name">{{ $user['Nickname'] }}</div>
-            <div class="profile-email">{{ $user['Email'] }}</div>
-            <button class="profile-button">Edit Profile</button>
-        </div>
+            <a class="profile-email" href="mailto:{{ $user['Email'] }}">{{ $user['Email'] }}</a>
+            <div class="profile-description">{{ $user['Description'] }}</div>
+            <div class="profile-follower">Follower: {{ $user['Follower'] }}</div>
+            <div class="profile-following">Following: {{ $user['Following'] }}</div>
 
+            {{-- <div class="profile-company">{{ $user['career'][0]['Company'] }}</div> --}}
 
-        {{-- 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">Your Profile</div>
-                        <div class="card-body">
-                            <div class="profile">
-                                <img src="{{ asset('profile-image.jpg') }}" alt="User Profile" class="profile-image">
-                                <div class="profile-name">{{ $user['Nickname'] }}</div>
-                                <div class="profile-email">{{ $user['Email'] }}</div>
-                                <!-- Display other profile information here -->
-                            </div>
-                        </div>
-                    </div>
+            @if (isset($user['career']) && count($user['career']) > 0)
+                <div class="profile-company" style="display: inline-block">
+                    <strong>{{ $user['career'][0]['company'] }}</strong> {{ $user['career'][0]['position'] }} — <span
+                        class="text-muted"> {{ \Carbon\Carbon::parse($user['career'][0]['start_date'])->format('m.Y') }} ~
+                        {{ \Carbon\Carbon::parse($user['career'][0]['end_date'])->format('m.Y') }}
+                    </span>
                 </div>
-            </div>
-        </div> --}}
+                <br>
+            @endif
+
+            <button class="edit-profile-button">Edit Profile</button>
+        </div>
     </div>
 
 @endsection
