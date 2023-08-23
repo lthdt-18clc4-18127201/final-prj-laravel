@@ -19,6 +19,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <script src="{{ asset('js/home/home.js') }}"></script>
+    <script src="https://kit.fontawesome.com/40b6c50ca9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

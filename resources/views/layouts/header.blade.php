@@ -39,19 +39,34 @@
             <!-- account -->
             <li class="nav-item">
                 <button class="acc-menu-btn" type="button" value="Show account menu div" onclick="toggleAccMenu()" />
+                <!-- toggle account menu box -->
+                <div id="acc-menu-div">
+                    @if ($isLoggedin)
+                        <div class="box-button"><a href="/users/profile">Tài khoản</a></div>
+                        <div class="box-button" id="logout"><a href="#" onclick="logoutAndRedirect()">Đăng
+                                xuất</a></div>
+                        <div class="box-button" id="collapse-account-menu-div"><i class="fa-solid fa-angle-up"></i>
+                        </div>
+                    @else
+                        <div class="box-button"><a href="{{ route('log-in.form') }}">Đăng nhập</a></div>
+                        <div class="box-button"><a href="{{ route('sign-up.form') }}">Đăng ký thành viên</a></div>
+                        <div class="box-button"><i class="fa-solid fa-angle-up"></i></div>
+                    @endif
+                </div>
             </li>
         </ul>
     </nav>
 
     <style>
         .box-button {
-            background-color: #2c3e50;
-            color: #ecf0f1;
+            background-color: #ffffff;
+            color: black;
             padding: 10px 20px;
             margin: 5px 0;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.2s, color 0.2s;
+            text-align: center
         }
 
         .box-button a {
@@ -62,20 +77,20 @@
         .box-button:hover {
             background-color: #3498db;
             color: white;
+            font-weight: bold;
         }
 
-        #collapse-account-menu-div {
-            background-color: #e74c3c;
-            color: white;
+        #logout {
             padding: 10px 20px;
-            margin-top: 10px;
+            margin-top: 5px 0px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.2s, color 0.2s;
         }
 
-        #collapse-account-menu-div:hover {
+        #logout:hover {
             background-color: #c0392b;
+            color: white;
         }
     </style>
 
@@ -92,20 +107,7 @@
         <div id="collapse-search-div"></div>
     </div>
 
-    <!-- toggle account menu box -->
-    <div id="acc-menu-div" style="display:none; position: absolute; top: 50px; right: 20px;">
-        @if ($isLoggedin)
-            <div class="box-button"><a href="/users/profile">Tài khoản</a></div>
-            <div class="box-button"><a href="#" onclick="logoutAndRedirect()">Đăng xuất</a></div>
-            <div class="box-button">Hỗ trợ khách hàng</div>
-            <div class="box-button" id="collapse-account-menu-div">collapse menu account</div>
-        @else
-            <div class="box-button"><a href="{{ route ('log-in.form') }}">Đăng nhập</a></div>
-            <div class="box-button"><a href="{{ route ('sign-up.form') }}">Đăng ký thành viên</a></div>
-            <div class="box-button">Hỗ trợ khách hàng</div>
-            <div class="box-button" id="collapse-account-menu-div">collapse menu account</div>
-        @endif
-    </div>
+
 </header>
 
 <!-- dummy box -->

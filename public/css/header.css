@@ -107,7 +107,20 @@ nav {
     border-radius: 100%;
 }
 
-#search-div {}
+#acc-menu-div {
+    display: none;
+    position: absolute;
+    top: 55px;
+    /* left: 50%; */
+    transform: translateX(-32%);
+    z-index: 1;
+    background-color: white;
+    /* Set a background color if needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Add a shadow for a better look */
+    border-radius: 5px;
+    padding: 10px;
+}
 
 .search-box {
     padding: auto;
