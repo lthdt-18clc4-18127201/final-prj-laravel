@@ -59,8 +59,6 @@
         @if ($isLoggedin)
             <div class="box"><a href="/users/profile">Tài khoản</a></div>
             <div class="box"><a href="#" onclick="logoutAndRedirect()">Đăng xuất</a></div>
-            <div class="box"><a href="{{ route('log-in.form') }}">Đăng nhập</a></div>
-            <div class="box"><a href="{{ route('sign-up.form') }}">Đăng ký thành viên</a></div>
             <div class="box">Hỗ trợ khách hàng</div>
             <div id="collapse-account-menu-div">collapse menu account</div>
         @else
