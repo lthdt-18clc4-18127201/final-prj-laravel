@@ -1,24 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Searching...')
+@section('title', "Searching for \"$query\"")
 
 @section('css-path')
-    {{ asset('css/search-result.css') }}
+    {{ asset('css/search-results.css') }}
 @endsection
 
 @section('content')
     <div class="wrapper">
         <h1>Search Results for "{{ $query }}"</h1>
 
-        @if (count($users) > 0)
+        @forelse ($users as $user)
             <ul>
-                @foreach ($users as $user)
-                    <li>{{ $user['Nickname'] }} - {{ $user['Email'] }}</li>
-                @endforeach
+                <li>{{ $user['Nickname'] }} - {{ $user['Email'] }}</li>
             </ul>
-        @else
+        @empty
             <p>No results found for "{{ $query }}".</p>
-        @endif
+        @endforelse
     </div>
-
 @endsection

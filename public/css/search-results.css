@@ -1,0 +1,76 @@
+/* Center the content and add some spacing */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.wrapper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper li {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f2f6ff;
+}
+
+.wrapper p {
+    font-size: 1.1rem;
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Add color to specific elements */
+.wrapper a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.wrapper a:hover {
+    text-decoration: underline;
+}
+
+.wrapper li::before {
+    content: "→";
+    margin-right: 10px;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.wrapper li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
