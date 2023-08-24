@@ -25,7 +25,7 @@
                     <div class="logo"></div>
                 </a></li>
             <!-- trends -->
-            <li class="nav-item"><a class="nav-link" href="/trends">Xu hướng tại Careerly</a></li>
+            <li class="nav-item"><a class="nav-link" href="/leaderboard">Xếp hạng</a></li>
             <!-- Q&A -->
             <li class="nav-item"><a class="nav-link active" href="/q&a">Q&A lập trình viên</a></li>
         </ul>

@@ -11,7 +11,6 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     {{-- CSS file --}}
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/Q&A.css') }}">
     <link rel="stylesheet" href=" @yield('css-path')">
     {{-- Logo icon --}}
     <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
