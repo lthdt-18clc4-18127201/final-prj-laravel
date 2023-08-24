@@ -8,7 +8,7 @@
 @php
     $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
     $isLoggedin = false;
-    
+
     if ($token) {
         $tokenData = json_decode(base64_decode($token), true);
         if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
@@ -25,9 +25,9 @@
                     <div class="logo"></div>
                 </a></li>
             <!-- trends -->
-            <li class="nav-item"><a class="nav-link" href="#trends">Xu hướng tại Careerly</a></li>
+            <li class="nav-item"><a class="nav-link" href="/trends">Xu hướng tại Careerly</a></li>
             <!-- Q&A -->
-            <li class="nav-item"><a class="nav-link active" href="#q&a">Q&A lập trình viên</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/q&a">Q&A lập trình viên</a></li>
         </ul>
 
         <ul class="nav-links" style="margin-bottom: 0">

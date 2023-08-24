@@ -11,14 +11,15 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     {{-- CSS file --}}
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Q&A.css') }}">
     <link rel="stylesheet" href=" @yield('css-path')">
     {{-- Logo icon --}}
     <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    <script src="{{ asset('js/home/home.js') }}"></script>
     <script src="https://kit.fontawesome.com/40b6c50ca9.js" crossorigin="anonymous"></script>
 </head>
 
@@ -80,6 +81,8 @@
             }
         });
     </script>
+    <script src="{{ asset('js/QnA.js') }}"></script>
+    <script src="{{ asset('js/home/home.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>

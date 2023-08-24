@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\QnAController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,5 @@ Route::get('/users/search', [UserController::class, 'search'])->name('users.sear
 Route::get('/users/profile', [UserController::class, 'showProfile'])->name('users.profile');
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index']);
+Route::get('/q&a', [QnAController::class, 'index']);
+Route::get('/q&a/open-questions', [QnAController::class, 'openQuestions'])->name('qna.open-question');
