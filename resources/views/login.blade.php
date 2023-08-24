@@ -158,6 +158,7 @@
         .signup-link:hover {
             text-decoration: underline;
         }
+
         .alert {
             margin-top: 10px;
             margin-left: 10px;

@@ -1,33 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
-
+/* Global Reset */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
-    background: #080710;
-    height: 100%;
-    width: 100%;
     background: #008489;
 }
 
-/* header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-} */
-
+/* Header Brand Styles */
 .header-brand {
     padding: 0 50px;
 }
 
+/* Personal Auth Styles */
 .personal-auth {
     margin: 0 30px;
 }
 
+/* Slide Loader Styles */
 .slide-loader {
     display: flex;
     padding: 10px;
@@ -38,6 +31,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Carousel Image Styles */
 .carousel-inner>.carousel-item>img {
     width: 640px;
     height: 360px;
@@ -45,6 +39,7 @@ body {
     border-radius: 10px;
 }
 
+/* Features Container Styles */
 .features {
     display: flex;
     justify-content: center;
@@ -52,16 +47,19 @@ body {
     flex-direction: column;
 }
 
+/* Features Item Styles */
 .features-item {
     margin-bottom: 30px;
     border-radius: 20px;
 }
 
+/* Feature Card Styles */
 .feature-card {
     width: 38rem;
     height: 14rem;
 }
 
+/* Feature Content Styles */
 .feature-content {
     display: flex;
     justify-content: center;
@@ -69,22 +67,23 @@ body {
     flex-direction: column;
 }
 
+/* Feature Image Styles */
 .feature-image {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Body Styles */
 .body {
     border-radius: 20px;
 }
 
-/* Updated styles for the create account container */
+/* Create Account Container Styles */
 .create-account {
     position: fixed;
     width: 100%;
     height: auto;
-    /* Allow height to adjust based on content */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -92,12 +91,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Add a semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 1rem;
 }
 
-/* Updated styles for the create account button */
+/* Create Account Button Styles */
 .btn-create {
     padding: 15px 40px;
     background-color: #ED6552;
@@ -105,7 +103,6 @@ body {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease-in, opacity 0.3s ease-in;
-    /* Add opacity transition */
     width: 300px;
     height: 60px;
     border-radius: 30px;
@@ -114,33 +111,42 @@ body {
     align-items: center;
     font-weight: bold;
     text-transform: uppercase;
-    /* Uppercase text */
     letter-spacing: 1px;
-    /* Adjust letter spacing for better readability */
 }
 
-/* Apply hover effect to the create account button */
 .btn-create:hover {
     background-color: #e74c3c;
-    /* Slightly darker shade on hover */
     opacity: 0.9;
-    /* Increase opacity on hover */
 }
 
-/* Apply focus effect to the create account button */
 .btn-create:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(237, 101, 82, 0.4);
 }
 
+/* Footer Styles */
+.footer {
+    background-color: #41a69a;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
 
+.footer-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 
-footer {
-    display: flex;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #41a69a;
-    position: relative;
+.footer-title span {
+    color: #ed6552;
+}
+
+.footer-content {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 14px;
 }

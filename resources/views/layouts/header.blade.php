@@ -8,7 +8,7 @@
 @php
     $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
     $isLoggedin = false;
-
+    
     if ($token) {
         $tokenData = json_decode(base64_decode($token), true);
         if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
@@ -21,24 +21,34 @@
     <nav id="navbar">
         <ul class="nav-links" style="margin-bottom: 0">
             <!-- home -->
-            <li class="nav-item"><a class="nav-link" href="/">
+            <li class="nav-item">
+                <a class="nav-link" href="/" data-target="/">
                     <div class="logo"></div>
-                </a></li>
+                </a>
+            </li>
             <!-- trends -->
-            <li class="nav-item"><a class="nav-link" href="/leaderboard">Xếp hạng</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/leaderboard" data-target="/leaderboard">Xếp hạng</a>
+            </li>
             <!-- Q&A -->
-            <li class="nav-item"><a class="nav-link active" href="/q&a">Q&A lập trình viên</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/q&a" data-target="/q&a">Q&A lập trình viên</a>
+            </li>
         </ul>
 
         <ul class="nav-links" style="margin-bottom: 0">
             <!-- search -->
             <li class="nav-item">
-                <button class="search-btn" type="button" value="Show search div" onclick="toggleSearch()" />
+                <button class="search-btn" type="button" value="Show search div" onclick="toggleSearch()">
+                    <i class="fas fa-search fa-2x"></i>
+                </button>
             </li>
 
-            <!-- account -->
+            <!-- menu account -->
             <li class="nav-item">
-                <button class="acc-menu-btn" type="button" value="Show account menu div" onclick="toggleAccMenu()" />
+                <button class="acc-menu-btn" type="button" value="Show account menu div" onclick="toggleAccMenu()">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                </button>
                 <!-- toggle account menu box -->
                 <div id="acc-menu-div">
                     @if ($isLoggedin)
@@ -57,45 +67,6 @@
         </ul>
     </nav>
 
-    <style>
-        .box-button {
-            background-color: #ffffff;
-            color: black;
-            padding: 10px 20px;
-            margin: 5px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
-            text-align: center
-        }
-
-        .box-button a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .box-button:hover {
-            background-color: #3498db;
-            color: white;
-            font-weight: bold;
-        }
-
-        #logout {
-            padding: 10px 20px;
-            margin-top: 5px 0px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        #logout:hover {
-            background-color: #c0392b;
-            color: white;
-        }
-    </style>
-
-
-
     <!-- toggle search box -->
     <div id="search-div" style="display:none;">
         <div class="search-box">
@@ -104,10 +75,8 @@
                 <input name="query" type="text" class="text search-input" placeholder="Type here to search..." />
             </form>
         </div>
-        <div id="collapse-search-div"></div>
+        <div id="collapse-search-div"><span>CLOSE</span></div>
     </div>
-
-
 </header>
 
 <!-- dummy box -->

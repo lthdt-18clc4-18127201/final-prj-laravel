@@ -1,44 +1,46 @@
+/* Global Reset */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* root */
+/* Root Variables */
 :root {
     --grey: #94a3b8;
 }
 
+/* Header Styles */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-bottom: 1px solid lightgray;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Header Brand Styles */
 .header-brand {
     padding: 0 50px;
 }
 
-/* Styles */
+/* Body and Typography */
 html,
 body {
-    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-        "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
-        "Malgun Gothic", sans-serif;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
     font-size: 12px;
 }
 
+/* Logo Styles */
 .logo {
     background: url('../img/logo.svg') no-repeat center;
     height: 24px;
     width: 94px;
 }
 
-nav>ul>* {
-    display: inline-block;
-}
-
+/* Navigation Styles */
 nav {
     height: 55px;
 }
@@ -59,79 +61,76 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: #fff;
-    border-bottom: 1px solid lightgray;
 }
 
+/* Common Navigation Link Styles */
 .nav-link {
-    font-weight: 500;
-    text-decoration: none;
     padding: 16px 0;
     color: black;
-}
-
-.active {
+    height: 55px;
     font-weight: 500;
     text-decoration: none;
-    border-bottom: 3px solid orange;
-    bottom: 0;
+    box-sizing: border-box;
+    transition: color 0.3s ease;
 }
 
 .nav-link:visited {
-    font-weight: 500;
     color: grey;
-    text-decoration: none;
 }
 
 .nav-link:hover {
-    font-weight: 500;
     color: black;
-    text-decoration: none;
 }
 
-.search-btn {
-    background: url("../img/search-icon.svg") no-repeat center;
+/* Active Link Styles */
+.active {
+    border-bottom: 3px solid #0074E4;
+    bottom: 0;
+}
+
+/* Common Button Styles */
+.search-btn,
+.acc-menu-btn {
+    background-repeat: no-repeat;
     height: 24px;
     width: 24px;
     border: none;
     cursor: pointer;
+    transition: background 0.3s ease;
+    background-color: #fff;
 }
 
+/* Account Menu Button Styles */
 .acc-menu-btn {
-    background: url("https://careerly.vn/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fimg_profile-dummy-f39ccb87481ab4a70525a9d2d461307d.png&w=48&q=75") no-repeat center;
-    background-size: contain;
-    height: 36px;
-    width: 36px;
-    border: 1px solid lightgray;
-    cursor: pointer;
     border-radius: 100%;
+    transition: border-color 0.3s ease;
 }
 
+/* Account Menu Dropdown Styles */
 #acc-menu-div {
     display: none;
     position: absolute;
     top: 55px;
-    /* left: 50%; */
     transform: translateX(-32%);
     z-index: 1;
     background-color: white;
-    /* Set a background color if needed */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Add a shadow for a better look */
     border-radius: 5px;
     padding: 10px;
 }
 
+/* Search Box Styles */
+#search-div {
+    background-color: #ffffff00;
+}
+
 .search-box {
-    padding: auto;
     height: 125px;
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    /* max-width: 1024px; */
     background-color: white;
+    transition: background-color 0.3s ease;
 }
 
 .search-box .search-input {
@@ -139,9 +138,6 @@ nav {
     line-height: 1.5;
     width: 600px;
     border: none;
-}
-
-input[type="text"]:focus-visible {
     outline: none;
 }
 
@@ -151,9 +147,68 @@ input[type="text"]:focus-visible {
     height: 100vh;
     border-top: 1px solid lightgray;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    position: relative;
 }
 
+#collapse-search-div:hover {
+    background-color: rgb(142, 66, 66);
+    backdrop-filter: blur(15px);
+}
+
+#collapse-search-div span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 120px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Adjust Header Z-Index and Position */
 header {
     z-index: 99;
     position: fixed;
+}
+
+/* Box Button Styles */
+.box-button {
+    background-color: #ffffff;
+    color: black;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.box-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.box-button:hover {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+#logout {
+    padding: 10px 20px;
+    margin-top: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#logout:hover {
+    background-color: #c0392b;
+    color: white;
 }

@@ -15,11 +15,11 @@
     {{-- Logo icon --}}
     <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    {{-- The Awesome Icons --}}
     <script src="https://kit.fontawesome.com/40b6c50ca9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     {{-- header --}}
 
     {{-- content --}}
-    <div class="">
+    <div class="content">
         @yield('content')
     </div>
     {{-- content --}}
@@ -82,6 +82,30 @@
     </script>
     <script src="{{ asset('js/QnA.js') }}"></script>
     <script src="{{ asset('js/home/home.js') }}"></script>
+    <!-- Include JavaScript at the bottom of the body -->
+    <script>
+        // Get the current URL
+        var currentUrl = window.location.href;
+        console.log("Target URL:", currentUrl);
+
+        // Get all navigation links
+        var navLinks = document.querySelectorAll('.nav-link');
+
+        // Loop through each navigation link
+        for (var i = 0; i < navLinks.length; i++) {
+            // Get the target URL from the data-target attribute
+            var targetUrl = "http://127.0.0.1:8000" + navLinks[i].getAttribute('data-target');
+
+            // Print target URL for debugging
+            console.log("Target URL:", targetUrl);
+
+            // Check if the current URL matches the target URL
+            if (currentUrl === targetUrl) {
+                // Add the active class to the matching link
+                navLinks[i].classList.add('active');
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
