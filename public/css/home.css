@@ -123,30 +123,3 @@ body {
     outline: none;
     box-shadow: 0 0 0 3px rgba(237, 101, 82, 0.4);
 }
-
-/* Footer Styles */
-.footer {
-    background-color: #41a69a;
-    color: #fff;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.footer-title h1 {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.footer-title span {
-    color: #ed6552;
-}
-
-.footer-content {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.footer p {
-    font-size: 14px;
-}

@@ -1,3 +1,15 @@
+@php
+    $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
+    $isLoggedin = false;
+    
+    if ($token) {
+        $tokenData = json_decode(base64_decode($token), true);
+        if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
+            $isLoggedin = true;
+        }
+    }
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,14 +24,12 @@
     {{-- CSS file --}}
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href=" @yield('css-path')">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     {{-- Logo icon --}}
-    <link rel="icon" type="image/png" href="{{ asset('path/to/your/favicon.png') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     {{-- The Awesome Icons --}}
     <script src="https://kit.fontawesome.com/40b6c50ca9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 
 <body>
@@ -28,7 +38,7 @@
     {{-- header --}}
 
     {{-- content --}}
-    <div class="content">
+    <div class="content" style="min-height: 100vh">
         @yield('content')
     </div>
     {{-- content --}}
@@ -38,10 +48,12 @@
     {{-- footer --}}
 
     <!-- start create account -->
-    <div class="create-account">
-        <a href="/sign-up" class="btn btn-create" tabindex="-1" role="button" aria-disabled="true">Start Create
-            An Account</a>
-    </div>
+    @if (!$isLoggedin)
+        <div class="create-account">
+            <a href="/sign-up" class="btn btn-create" tabindex="-1" role="button" aria-disabled="true">Start Create
+                An Account</a>
+        </div>
+    @endif
     <!-- end create account -->
 
     <!-- Include JavaScript at the bottom of the body -->
@@ -82,7 +94,6 @@
     </script>
     <script src="{{ asset('js/QnA.js') }}"></script>
     <script src="{{ asset('js/home/home.js') }}"></script>
-    <!-- Include JavaScript at the bottom of the body -->
     <script>
         // Get the current URL
         var currentUrl = window.location.href;

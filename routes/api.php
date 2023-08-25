@@ -23,5 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'login_api']);
 Route::post('/sign-up', [AuthController::class, 'signUp_api']);
 Route::post('/google/callback', [AuthController::class, 'handleGoogleCallbackAPI']);
-
 Route::get('/search', [UserController::class, 'apiSearch']);

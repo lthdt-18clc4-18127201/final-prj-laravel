@@ -1,0 +1,90 @@
+/* Custom styling for the Post page */
+.container {
+    background-color: #e2e2e2;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.article-header {
+    background-color: #FAEBD7;
+}
+
+.article-tag {
+    background-color: rgb(241, 245, 249);
+    color: var(--grey);
+}
+
+.article-tag svg {
+    fill: var(--grey);
+}
+
+.question {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.views-count,
+.author-name,
+.date-post {
+    font-size: 14px;
+    color: var(--grey);
+}
+
+.avatar img {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--grey);
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.article-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.article-hashtags {
+    gap: 0.5rem;
+    margin-top: 10px;
+}
+
+.hash-tag {
+    border: 1px solid rgb(226, 232, 240);
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--grey);
+    margin-right: 0.5rem;
+}
+
+.hash-tag:hover {
+    background: rgb(241, 245, 249);
+}
+
+.article-tag,
+.article-options,
+.hash-tag {
+    align-items: center;
+}
+
+.up-down-vote button {
+    width: 8rem;
+    background-color: #fff;
+    border: var(--grey) 1px solid;
+    border-radius: 2rem;
+}
+
+.up-down-vote span {
+    font-size: 1.5rem;
+}
+
+.vote-guide {
+    background: #FAEBD7;
+    margin-top: 10px;
+}
+
+.guide-title {
+    font-size: 16px;
+    margin-bottom: 1rem;
+}

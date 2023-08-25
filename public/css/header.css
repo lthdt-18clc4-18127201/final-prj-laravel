@@ -212,3 +212,7 @@ header {
     background-color: #c0392b;
     color: white;
 }
+
+.content {
+    background: #fff;
+}

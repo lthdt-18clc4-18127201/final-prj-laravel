@@ -19,7 +19,6 @@ use App\Http\Controllers\QnAController;
 |
 */
 
-
 Route::get('/', function () {
     return view('home');
 });
@@ -30,6 +29,10 @@ Route::get('/test', function () {
 
 Route::get('/qna-post', function () {
     return view('qna-post');
+});
+
+Route::get('/post', function () {
+    return view('post');
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('log-in.form');
