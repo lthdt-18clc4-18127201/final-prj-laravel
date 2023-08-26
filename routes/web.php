@@ -27,9 +27,7 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/qna-post', function () {
-    return view('qna-post');
-});
+Route::get('/test-post-id-17', [QnAController::class, 'showPost']);
 
 Route::get('/post', function () {
     return view('post');
@@ -54,5 +52,6 @@ Route::get('/users/search', [UserController::class, 'search'])->name('users.sear
 Route::get('/users/profile', [UserController::class, 'showProfile'])->name('users.profile');
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index']);
+
 Route::get('/q&a', [QnAController::class, 'index']);
 Route::get('/q&a/open-questions', [QnAController::class, 'openQuestions'])->name('qna.open-question');

@@ -6,6 +6,10 @@
     margin: 0 auto;
 }
 
+.article {
+    margin: 0 1rem;
+}
+
 .article-header {
     background-color: #FAEBD7;
 }

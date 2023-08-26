@@ -7,12 +7,10 @@
 @endsection
 
 @section('content')
-    <div class="container my-5">
+    <div class="container my-5 mx-5">
         <div class="row">
             <div class="col-md-8">
-                <!-- Article Content -->
                 <div class="article">
-                    <!-- Article Header -->
                     <div class="article-header bg-light p-3 d-flex justify-content-between align-items-center">
                         <div class="article-tag bg-light rounded-pill px-2 py-1 d-flex justify-content-start">
                             <svg width="12" height="12" stroke-width="0" viewBox="0 0 24 24"
@@ -23,7 +21,6 @@
                             </svg>
                             <p class="fw-bold ms-1 m-0">Công nghệ</p>
                         </div>
-                        <!-- Other header content -->
                         <div class="article-options flex-1 d-flex justify-content-end">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="icon icon-tabler icon-tabler-dots-circle-horizontal" width="20" height="20"
@@ -37,15 +34,12 @@
                             </svg>
                         </div>
                     </div>
-
                     <!-- Article Title -->
                     <div class="question fw-normal p-3">
-                        Mọi người thường làm website đa ngôn ngữ như thế nào?
+                        {{ $post['ID'] }}
                     </div>
-
                     <!-- Views Count -->
-                    <div class="views-count p-3 text-muted">52 lượt xem</div>
-
+                    <div class="views-count p-3 text-muted">{{ $post['View'] }} lượt xem</div>
                     <!-- Article Author Info -->
                     <div class="article-author d-flex align-items-center p-3">
                         <div class="avatar me-3">
@@ -53,30 +47,21 @@
                                 alt="Profile Picture" class="img-fluid rounded-circle">
                         </div>
                         <div class="author-info">
-                            <div class="author-name fw-bold">Ẩn danh</div>
+                            <div class="author-name fw-bold">{{$post['Email']}}</div>
                             <div class="date-post text-muted">Ngày 31 Tháng 05</div>
                         </div>
                     </div>
-
                     <!-- Article Content -->
                     <div class="article-content p-3">
                         <p class="fs-5">
-                            Mình đang muốn tham khảo một số cách develop và quản lý website
-                            theo hướng đa ngôn ngữ để chọn ra cách tốt nhất cho dự án mình sắp
-                            làm. Mọi người thường hay làm theo cách nào thế ạ?
+                            {{ $post['Content'] }}
                         </p>
                     </div>
-
                     <!-- Article Hashtags -->
                     <div class="article-hashtags p-3">
-                        <a href="#" class="hash-tag bg-light rounded-pill px-2 py-1 text-muted">
-                            #đa-ngôn-ngữ
-                        </a>
-                        <a href="#" class="hash-tag bg-light rounded-pill px-2 py-1 text-muted">
-                            #i18n
-                        </a>
+                        <a href="#" class="hash-tag bg-light rounded-pill px-2 py-1 text-muted">#đa-ngôn-ngữ</a>
+                        <a href="#" class="hash-tag bg-light rounded-pill px-2 py-1 text-muted">#i18n</a>
                     </div>
-
                     <!-- Up Down Vote Section -->
                     <div class="up-down-vote d-flex justify-content-center p-3">
                         <button class="up-vote btn btn-light btn-sm me-2 d-flex justify-content-center">
@@ -84,10 +69,10 @@
                                 <svg width="16" height="16" stroke-width="0" viewBox="0 0 24 24" fill="current"
                                     xmlns="http://www.w3.org/2000/svg" class="mb-1">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M19.7071 10.7071C19.3166 11.0976 18.6834 11.0976 18.2929 10.7071L13 5.41423L13 21C13 21.5523 12.5523 22 12 22C11.4478 22 11 21.5523 11 21L11.0001 5.4142L5.7071 10.7071C5.31658 11.0976 4.68341 11.0976 4.29289 10.7071C3.90237 10.3166 3.90237 9.68341 4.29289 9.29289L11.2929 2.29289C11.4805 2.10535 11.7348 2 12.0001 2C12.2653 2 12.5196 2.10536 12.7072 2.2929L19.7071 9.2929C20.0976 9.68342 20.0976 10.3166 19.7071 10.7071Z"
+                                        d="M19.7071 10.7071C19.3166 11.0976 18.6834 11.0976 18.2929 10.7071L13 5.41423L13 21C13 21.5523 12.5523 22 12 22C11.4478 22 11 21.5523 11 21L11.0001 5.4142L5.7071 10.7071C5.31658 11.0976 4.68341 11.0976 4.29289 10.7071C3.90237 10.3166 3.90237 9.68341 4.2929 9.29289L11.2929 2.29289C11.4805 2.10535 11.7348 2 12.0001 2C12.2653 2 12.5196 2.10536 12.7072 2.2929L19.7071 9.2929C20.0976 9.68342 20.0976 10.3166 19.7071 10.7071Z"
                                         fill="inherit"></path>
                                 </svg>
-                                <span class="text-muted fw-bold">0</span>
+                                <span class="text-muted fw-bold">{{ $post['Upvotes'] }}</span>
                             </span>
                         </button>
                         <button class="down-vote btn btn-light btn-sm d-flex justify-content-center">
@@ -102,34 +87,25 @@
                             </span>
                         </button>
                     </div>
-
                     <!-- Vote Guide -->
                     <div class="vote-guide bg-light p-3">
                         <div class="guide-title fw-bold">Đánh giá câu hỏi ngay!</div>
                         <p>
-                            Hãy ấn <span class="fw-bold">↑Up Vote</span> với những câu hỏi cụ thể
-                            và chi tiết
+                            Hãy ấn <span class="fw-bold">↑Up Vote</span> với những câu hỏi cụ thể và chi tiết
                         </p>
                         <p>
-                            Hãy ấn <span class="fw-bold">↓Down Vote</span> với những câu hỏi chưa
-                            rõ ràng Careerly sẽ nhắc người hỏi chỉnh sửa lại.
+                            Hãy ấn <span class="fw-bold">↓Down Vote</span> với những câu hỏi chưa rõ ràng Careerly sẽ nhắc
+                            người hỏi chỉnh sửa lại.
                         </p>
                     </div>
                 </div>
-                <!-- End Article -->
             </div>
             <div class="col-md-4">
-                <!-- Sidebar content here -->
-                <h2>Sidebar</h2>
-                <p>
-                    This is the sidebar. You can add additional content, links, or widgets
-                    here.
-                </p>
+                <h2>Các câu hỏi cùng chủ đề công nghệ</h2>
                 <ul>
                     <li><a href="#">Link 1</a></li>
                     <li><a href="#">Link 2</a></li>
                     <li><a href="#">Link 3</a></li>
-                    <!-- Add more links or other elements as needed -->
                 </ul>
             </div>
         </div>

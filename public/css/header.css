@@ -19,6 +19,7 @@ header {
     background: #fff;
     border-bottom: 1px solid lightgray;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 }
 
 /* Header Brand Styles */
