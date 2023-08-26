@@ -25,6 +25,7 @@ class UserController extends Controller
 
     public function showMyProfile()
     {
+        $myprofile = true;
         $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
         $tokenData = json_decode(base64_decode($token), true);
 
@@ -32,18 +33,19 @@ class UserController extends Controller
             ->where('Email', 'like', '%' . $tokenData['email'] . '%')
             ->first();
 
-        return view('users.profile', compact('user'));
+        return view('users.profile', compact('user', 'myprofile'));
     }
 
     public function showProfile(Request $request)
     {
+        $myprofile = false;
         $email = $request->input('query');
 
         $user = DB::connection('mongodb')->collection('Account')
             ->where('Email', $email)
             ->first();
         // dd($user);
-        return view('users.profile', compact('user'));
+        return view('users.profile', compact('user', 'myprofile'));
     }
 
     public function apiSearch(Request $request)
