@@ -8,8 +8,9 @@
     --tw-bg-opacity: 1;
     background-color: rgb(248 250 252/var(--tw-bg-opacity));
     flex-direction: column;
-    height: 100vh;
     display: flex;
+    height: calc(100vh - 100px);
+    padding: 10vh 10vw;
 }
 
 .navbar-create {
@@ -84,31 +85,36 @@
     padding-right: 0.5rem;
     gap: 0.5rem;
     display: flex;
+    align-items: center;
+    /* Align vertically centered */
 }
 
 .finished-save {
-    opacity: .4;
-    font-size: .875rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: rgb(255 255 255);
-    border-color: rgb(237 102 83);
-    border-style: solid;
-    border-width: 1px;
+    font-size: 1rem;
+    /* Increase font size for better readability */
+    padding: 0.5rem 1rem;
+    /* Simplified padding */
+    background-color: #206fa4;
+    /* Use the green color */
+    color: #fff;
+    /* White text color */
+    border: none;
     border-radius: 0.25rem;
-    flex: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
 }
 
-.finished-question button {
-    text-transform: none;
-    overflow: visible;
+.finished-save:hover {
+    background-color: rgb(49, 119, 199);
+    /* Slightly darker green on hover */
+    transform: scale(1.05);
+    opacity: 1;
+    /* Full opacity on hover */
 }
 
 .finished-text {
-    --tw-text-opacity: 1;
-    color: rgb(237 102 83/var(--tw-text-opacity));
+    font-weight: bold;
+    /* Bold text */
 }
 
 .link-and-image {
@@ -174,7 +180,7 @@
     border-color: rgb(203 213 225/var(--tw-border-opacity));
     border-style: solid;
     border-top-width: 0;
-    border-bottom-width: 0;
+    /* border-bottom-width: 0; */
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255/var(--tw-bg-opacity));
     overflow: auto;
@@ -193,6 +199,7 @@
     flex-direction: column;
     max-width: 576px;
     width: 100%;
+    height: 100%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -326,23 +333,28 @@
 }
 
 .content-description {
-    height: 96px !important;
-    resize: none;
-    border: 0;
-    overflow: auto;
-    height: 54px;
-    caret-color: #0e6371;
-    --tw-text-opacity: 1;
-    color: rgb(15 23 42/var(--tw-text-opacity));
-    line-height: 1.5;
-    font-weight: 700;
-    font-size: 1.25rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 0;
-    padding-right: 0;
-    border-radius: 0;
+    height: 100%;
+    /* Adjust the height based on your preference */
+    resize: vertical;
+    /* Allow vertical resizing */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
     width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.title {
+    height: 42px;
+    /* Adjust the height based on your preference */
+    resize: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .content-split {
