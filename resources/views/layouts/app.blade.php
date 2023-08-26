@@ -96,16 +96,16 @@
     <script src="{{ asset('js/home/home.js') }}"></script>
     <script>
         // Get the current URL
-        var currentUrl = window.location.href;
-        console.log("Target URL:", currentUrl);
+        var currentUrl = window.location.pathname;
+        console.log("Current URL:", currentUrl);
 
         // Get all navigation links
         var navLinks = document.querySelectorAll('.nav-link');
 
         // Loop through each navigation link
         for (var i = 0; i < navLinks.length; i++) {
-            // Get the target URL from the data-target attribute
-            var targetUrl = "http://127.0.0.1:8000" + navLinks[i].getAttribute('data-target');
+            // Get the target URL from the href attribute
+            var targetUrl = navLinks[i].getAttribute('href');
 
             // Print target URL for debugging
             console.log("Target URL:", targetUrl);
@@ -117,6 +117,7 @@
             }
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
