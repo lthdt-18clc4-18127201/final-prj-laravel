@@ -48,10 +48,10 @@ Route::get('/oauth_callback_Google', [AuthController::class, 'handleGoogleCallba
 
 Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
 Route::get('/users/profile', [UserController::class, 'showProfile'])->name('users.profile');
-Route::get('/users/my-profile', [UserController::class, 'showMyProfile'])->name('users.myProfile');
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index']);
 
 Route::get('/qna', [QnAController::class, 'index']);
 Route::get('/qna/open-questions', [QnAController::class, 'openQuestions'])->name('qna.open-question');
 Route::get('/qna/post', [QnAController::class, 'showPost']);
+

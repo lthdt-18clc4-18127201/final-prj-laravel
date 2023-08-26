@@ -7,24 +7,15 @@
 @endsection
 
 @section('content')
-    <div class="search-results">
+    <div class="wrapper">
         <h1>Search Results for "{{ $query }}"</h1>
 
-        <ul class="user-list">
-            @forelse ($users as $user)
-                <li class="user-item">
-                    <form action="{{ route('users.profile') }}" method="GET">
-                        <input type="hidden" name="query" value="{{ $user['Email'] }}">
-                        <button type="submit" class="profile-button">
-                            {{ $user['Nickname'] }} - {{ $user['Email'] }}
-                        </button>
-                    </form>
-                </li>
-            @empty
-                <li class="no-results">
-                    No results found for "{{ $query }}".
-                </li>
-            @endforelse
-        </ul>
+        @forelse ($users as $user)
+            <ul>
+                <li>{{ $user['Nickname'] }} - {{ $user['Email'] }}</li>
+            </ul>
+        @empty
+            <p>No results found for "{{ $query }}".</p>
+        @endforelse
     </div>
 @endsection

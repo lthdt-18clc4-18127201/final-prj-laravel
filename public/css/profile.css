@@ -1,24 +1,13 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body and wrapper styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-}
-
+/* Update the wrapper background and alignment */
 .wrapper {
+    background-color: #f3f4f6;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Profile card styling */
+/* Redesigned profile card */
 .profile-card {
     background-color: #ffffff;
     border-radius: 15px;
@@ -33,19 +22,16 @@ body {
     transform: translateY(-5px);
 }
 
-/* Profile header styling */
-.profile-header {
-    margin-bottom: 20px;
-}
-
+/* Profile image */
 .profile-image {
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    margin: 0 auto 10px;
+    margin: 0 auto 15px;
 }
 
+/* Profile name */
 .profile-name {
     font-size: 1.5rem;
     font-weight: bold;
@@ -53,43 +39,14 @@ body {
     margin-bottom: 5px;
 }
 
+/* Profile email */
 .profile-email {
     color: #777;
     text-decoration: none;
     font-size: 0.9rem;
 }
 
-/* Profile details styling */
-.profile-details {
-    color: #555;
-}
-
-.profile-follower,
-.profile-following {
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-}
-
-.profile-description {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-/* Career section styling */
-.profile-career {
-    margin-top: 20px;
-}
-
-.profile-company {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.text-muted {
-    color: #999;
-}
-
-/* Edit profile button styling */
+/* Edit profile button */
 .edit-profile-button {
     background-color: #007bff;
     color: #fff;
@@ -105,4 +62,18 @@ body {
 .edit-profile-button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+/* Profile description */
+.profile-description {
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* Profile company */
+.profile-company {
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 10px;
 }
