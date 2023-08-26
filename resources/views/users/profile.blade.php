@@ -44,11 +44,7 @@
                     </div>
                 @endif
 
-                @if ($myprofile)
-                    <button class="edit-profile-button">Edit Profile</button>
-                @else
-                    <button class="edit-profile-button">Follow</button>
-                @endif
+                <button class="edit-profile-button">Edit Profile</button>
             </div>
         </div>
     </div>
