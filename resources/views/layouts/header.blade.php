@@ -8,7 +8,7 @@
 @php
     $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
     $isLoggedin = false;
-
+    
     if ($token) {
         $tokenData = json_decode(base64_decode($token), true);
         if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
@@ -52,7 +52,6 @@
                 <!-- toggle account menu box -->
                 <div id="acc-menu-div">
                     @if ($isLoggedin)
-                        <div class="box-button"><a href="/q&a/create-questions">Tạo câu hỏi</a></div>
                         <div class="box-button"><a href="/users/my-profile">Tài khoản</a></div>
                         <div class="box-button" id="logout"><a href="#" onclick="logoutAndRedirect()">Đăng
                                 xuất</a></div>

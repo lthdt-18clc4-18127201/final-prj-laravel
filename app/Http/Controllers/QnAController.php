@@ -14,12 +14,7 @@ class QnAController extends Controller
 
     public function openQuestions()
     {
-        return view('QnA/QnA');
-    }
-
-    public function createQuestions()
-    {
-        return view('QnA/createQnA');
+        return view('');
     }
 
     public function showPost()

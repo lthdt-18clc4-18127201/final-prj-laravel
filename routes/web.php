@@ -55,4 +55,3 @@ Route::get('/leaderboard', [LeaderboardController::class, 'index']);
 Route::get('/qna', [QnAController::class, 'index']);
 Route::get('/qna/open-questions', [QnAController::class, 'openQuestions'])->name('qna.open-question');
 Route::get('/qna/post', [QnAController::class, 'showPost']);
-Route::get('/q&a/create-questions', [QnAController::class, 'createQuestions']);
