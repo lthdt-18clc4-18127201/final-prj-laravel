@@ -32,7 +32,7 @@
             </li>
             <!-- Q&A -->
             <li class="nav-item">
-                <a class="nav-link" href="/q&a" data-target="/q&a">Q&A lập trình viên</a>
+                <a class="nav-link" href="/qna" data-target="/qna">Q&A lập trình viên</a>
             </li>
         </ul>
 
@@ -60,7 +60,8 @@
                     @else
                         <div class="box-button"><a href="{{ route('log-in.form') }}">Đăng nhập</a></div>
                         <div class="box-button"><a href="{{ route('sign-up.form') }}">Đăng ký thành viên</a></div>
-                        <div class="box-button"><i class="fa-solid fa-angle-up"></i></div>
+                        <div class="box-button" id="collapse-account-menu-div"><i class="fa-solid fa-angle-up"></i>
+                        </div>
                     @endif
                 </div>
             </li>

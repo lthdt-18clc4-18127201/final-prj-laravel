@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="container my-5 mx-5">
+    <div class="container m-auto">
         <div class="row">
             <div class="col-md-8">
                 <div class="article">
@@ -36,7 +36,7 @@
                     </div>
                     <!-- Article Title -->
                     <div class="question fw-normal p-3">
-                        {{ $post['ID'] }}
+                        Bài viết số: {{ $post['ID'] }}
                     </div>
                     <!-- Views Count -->
                     <div class="views-count p-3 text-muted">{{ $post['View'] }} lượt xem</div>
@@ -47,7 +47,7 @@
                                 alt="Profile Picture" class="img-fluid rounded-circle">
                         </div>
                         <div class="author-info">
-                            <div class="author-name fw-bold">{{$post['Email']}}</div>
+                            <div class="author-name fw-bold">{{ $post['Email'] }}</div>
                             <div class="date-post text-muted">Ngày 31 Tháng 05</div>
                         </div>
                     </div>

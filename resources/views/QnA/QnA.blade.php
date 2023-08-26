@@ -13,7 +13,9 @@
             <div class="QnA-title">
                 <h2>Q&A Lập trình viên</h2>
             </div>
+
             <a class="btn btn-ask">Ask</a>
+
             <div class="category">
                 <span class="category-title">Chủ đề</span>
                 <ul class="category-list">
@@ -43,6 +45,7 @@
                     </li>
                 </ul>
             </div>
+
             <div class="tags">
                 <span class="tags-title">Tags phổ biến</span>
                 <div class="filter-buttons">
@@ -110,7 +113,6 @@
                         react-native
                     </a>
                 </div>
-
             </div>
         </div>
         <!-- end left-side -->
@@ -125,6 +127,7 @@
                 <a href="/qna/open-questions" class="btn-goto-answer">Trả lời ngay<i class="fa-solid fa-arrow-right"
                         style="color: #ffffff"></i></a>
             </p>
+
             <div>
                 <div class="suggestion">
                     <div class="suggestion-title">
@@ -143,7 +146,7 @@
                         <div class="suggestion-posts-items">
                             <div class="suggestion-posts-wrapper">
                                 <div class="posts-item">
-                                    <a href="#" class="item-content">
+                                    <a href="/qna/post" class="item-content">
                                         <div class="item-content-category">
                                             <div class="item-population">
                                                 <p class="item-text">Nổi bật</p>
@@ -330,10 +333,7 @@
                     </p>
                 </div>
             </a>
-
-
             <!-- end newest posts -->
         </div>
-
     </div>
 @endsection

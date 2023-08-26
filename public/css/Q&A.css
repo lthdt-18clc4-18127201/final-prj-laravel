@@ -45,6 +45,8 @@
     cursor: pointer;
     padding: 8px;
     width: 50px;
+    font-weight: bold;
+    color: white;
 }
 
 .category {
@@ -172,7 +174,7 @@
     --tw-text-opacity: 1;
     color: rgb(15 23 42/var(--tw-text-opacity));
     font-weight: 700;
-    font-size: 1.4em;
+    font-size: 1.2em;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;

@@ -38,7 +38,7 @@
     {{-- header --}}
 
     {{-- content --}}
-    <div class="content" style="min-height: 100vh">
+    <div class="content" style="min-height: calc(100vh - 200px)">
         @yield('content')
     </div>
     {{-- content --}}
