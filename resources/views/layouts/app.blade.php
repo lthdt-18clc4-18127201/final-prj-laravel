@@ -1,7 +1,7 @@
 @php
     $token = isset($_COOKIE['19CLC_Project_Token']) ? $_COOKIE['19CLC_Project_Token'] : null;
     $isLoggedin = false;
-    
+
     if ($token) {
         $tokenData = json_decode(base64_decode($token), true);
         if ($tokenData && isset($tokenData['exp']) && $tokenData['exp'] > time()) {
@@ -93,6 +93,7 @@
         });
     </script>
     <script src="{{ asset('js/QnA.js') }}"></script>
+    <script src="{{ asset('js/createQnA.js') }}"></script>
     <script src="{{ asset('js/home/home.js') }}"></script>
     <script>
         // Get the current URL
