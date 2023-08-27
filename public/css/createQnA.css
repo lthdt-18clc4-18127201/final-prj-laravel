@@ -335,7 +335,7 @@
 .content-description {
     height: 100%;
     /* Adjust the height based on your preference */
-    resize: vertical;
+    resize: none;
     /* Allow vertical resizing */
     border: 1px solid #ccc;
     padding: 10px;

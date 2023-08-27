@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use function PHPUnit\Framework\isNan;
 
 class QnAController extends Controller
 {
@@ -14,7 +17,8 @@ class QnAController extends Controller
 
     public function openQuestions()
     {
-        return view('QnA/QnA');
+        $post = Post::skip(10)->limit(1)->get();
+        return view('QnA/post', compact('post'));
     }
 
     public function createQuestions()
@@ -22,10 +26,20 @@ class QnAController extends Controller
         return view('QnA/createQnA');
     }
 
-    public function showPost()
+    public function showPostDetail($id)
     {
-        $randomId = rand(1, 150); // Generate a random number between 1 and 150
-        $post = DB::connection('mongodb')->collection('Post')->where('ID', $randomId)->first();
+        $id = Post::find($id)->_id;
+        $post = Post::where('_id', $id)->first();
         return view('QnA/post', compact('post'));
+
+    }
+
+    public function getSuggAndNewPosts() {
+        $suggestPosts = Post::limit(5)->get();
+        $newestPosts = Post::skip(5)->limit(10)->get();
+        return view('QnA/QnA', [
+            'suggestPosts' => $suggestPosts,
+            'newestPosts' => $newestPosts
+        ]);
     }
 }

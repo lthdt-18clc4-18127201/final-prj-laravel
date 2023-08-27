@@ -156,10 +156,12 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+
+        Jenssegers\Mongodb\MongodbQueueServiceProvider::class,
         /*
          * Package Service Providers...
          */
-        
+
         /*
          * Application Service Providers...
          */

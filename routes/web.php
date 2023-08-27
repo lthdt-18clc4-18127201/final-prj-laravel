@@ -52,7 +52,8 @@ Route::get('/users/my-profile', [UserController::class, 'showMyProfile'])->name(
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index']);
 
-Route::get('/qna', [QnAController::class, 'index']);
-Route::get('/qna/open-questions', [QnAController::class, 'openQuestions'])->name('qna.open-question');
-Route::get('/qna/post', [QnAController::class, 'showPost']);
-Route::get('/q&a/create-questions', [QnAController::class, 'createQuestions']);
+Route::get('/qna', [QnAController::class, 'getSuggAndNewPosts']);
+// Route::get('/qna/open-questions', [QnAController::class, 'openQuestions'])->name('qna.open-question');
+Route::get('/qna/post/{id}', [QnAController::class, 'showPostDetail']);
+Route::get('/qna/create-questions', [QnAController::class, 'createQuestions']);
+// Route::post('/qna/creat-questions', [QnAController::class, 'createQuestions']);

@@ -14,7 +14,7 @@
                 <h2>Q&A Lập trình viên</h2>
             </div>
 
-            <a class="btn btn-ask">Ask</a>
+            <a href="/qna/create-questions" class="btn btn-ask">Ask</a>
 
             <div class="category">
                 <span class="category-title">Chủ đề</span>
@@ -145,8 +145,9 @@
                     <div class="suggestion-posts">
                         <div class="suggestion-posts-items">
                             <div class="suggestion-posts-wrapper">
-                                <div class="posts-item">
-                                    <a href="/qna/post" class="item-content">
+                                @foreach ($suggestPosts as $key => $value)
+                                <div class="posts-item" style="width: 310px; margin-right: 20px;">
+                                    <a href="/qna/post/{{ $value['_id'] }}" class="item-content">
                                         <div class="item-content-category">
                                             <div class="item-population">
                                                 <p class="item-text">Nổi bật</p>
@@ -163,86 +164,23 @@
                                                     nghiệp</p>
                                             </div>
                                         </div>
-                                        <p class="item-content-title">Data type nào là tốt nhất để lưu URL?</p>
+                                        <!-- <p class="item-content-title">Data type nào là tốt nhất để lưu URL?</p> -->
+                                        <p class="item-content-title">{{ $value['Content'] }}</p>
                                         <div class="item-content-contact">
                                             <div class="item-response">
                                                 <p class="item-response-text">
                                                     <span>Trả lời</span>
-                                                    <span>2</span>
+                                                    <span>{{ $value['Upvotes'] }}</span>
                                                 </p>
                                             </div>
                                             <p class="item-content-seen">
                                                 <span>Lượt xem</span>
-                                                <span>126</span>
+                                                <span>{{ $value['View'] }}</span>
                                             </p>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="posts-item">
-                                    <a href="#" class="item-content">
-                                        <div class="item-content-category">
-                                            <div class="item-population">
-                                                <p class="item-text">Nổi bật</p>
-                                            </div>
-                                            <div class="item-category">
-                                                <svg width="12" height="12" stroke-width="0" viewBox="0 0 24 24"
-                                                    fill="current" xmlns="http://www.w3.org/2000/svg"
-                                                    class="tw-fill-purple-600">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M7.8787 1.87868C8.44131 1.31607 9.20437 1 10 1H14C14.7957 1 15.5587 1.31607 16.1213 1.87868C16.6839 2.44129 17 3.20435 17 4V5H19C19.7957 5 20.5587 5.31607 21.1213 5.87868C21.684 6.44129 22 7.20435 22 8V13.2317C22.0004 13.247 22.0004 13.2624 22 13.2776V18C22 18.7957 21.684 19.5587 21.1213 20.1213C20.5587 20.6839 19.7957 21 19 21H5.00002C4.20437 21 3.44131 20.6839 2.8787 20.1213C2.31609 19.5587 2.00002 18.7957 2.00002 18V13.2776C1.99967 13.2623 1.99967 13.247 2.00002 13.2317V8C2.00002 7.20435 2.31609 6.44129 2.8787 5.87868C3.44131 5.31607 4.20437 5 5.00002 5H7.00002V4C7.00002 3.20435 7.31609 2.44129 7.8787 1.87868ZM9.00002 5H15V4C15 3.73478 14.8947 3.48043 14.7071 3.29289C14.5196 3.10536 14.2652 3 14 3H10C9.7348 3 9.48045 3.10536 9.29291 3.29289C9.10538 3.48043 9.00002 3.73478 9.00002 4V5ZM5.00002 7C4.7348 7 4.48045 7.10536 4.29291 7.29289C4.10538 7.48043 4.00002 7.73478 4.00002 8V12.5703C6.49099 13.4944 9.18498 14 12 14L12.0012 14C14.7331 14.0033 17.4418 13.5185 20 12.5701V8C20 7.73478 19.8947 7.48043 19.7071 7.29289C19.5196 7.10536 19.2652 7 19 7H5.00002ZM20 14.6915C17.4255 15.5602 14.7231 16.0033 11.9994 16C9.20278 15.9999 6.51277 15.54 4.00002 14.6918V18C4.00002 18.2652 4.10538 18.5196 4.29291 18.7071C4.48045 18.8946 4.7348 19 5.00002 19H19C19.2652 19 19.5196 18.8946 19.7071 18.7071C19.8947 18.5196 20 18.2652 20 18V14.6915ZM11 12C11 11.4477 11.4477 11 12 11H12.01C12.5623 11 13.01 11.4477 13.01 12C13.01 12.5523 12.5623 13 12.01 13H12C11.4477 13 11 12.5523 11 12Z"
-                                                        fill="inherit"></path>
-                                                </svg>
-                                                <p class="item-text">Nghề nghiệp</p>
-                                            </div>
-                                        </div>
-                                        <p class="item-content-title">Data type nào là tốt nhất để lưu URL?</p>
-                                        <div class="item-content-contact">
-                                            <div class="item-response">
-                                                <p class="item-response-text">
-                                                    <span>Trả lời</span>
-                                                    <span>2</span>
-                                                </p>
-                                            </div>
-                                            <p class="item-content-seen">
-                                                <span>Lượt xem</span>
-                                                <span>126</span>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="posts-item">
-                                    <a href="#" class="item-content">
-                                        <div class="item-content-category">
-                                            <div class="item-population">
-                                                <p class="item-text">Nổi bật</p>
-                                            </div>
-                                            <div class="item-category">
-                                                <svg width="12" height="12" stroke-width="0" viewBox="0 0 24 24"
-                                                    fill="current" xmlns="http://www.w3.org/2000/svg"
-                                                    class="tw-fill-purple-600">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M7.8787 1.87868C8.44131 1.31607 9.20437 1 10 1H14C14.7957 1 15.5587 1.31607 16.1213 1.87868C16.6839 2.44129 17 3.20435 17 4V5H19C19.7957 5 20.5587 5.31607 21.1213 5.87868C21.684 6.44129 22 7.20435 22 8V13.2317C22.0004 13.247 22.0004 13.2624 22 13.2776V18C22 18.7957 21.684 19.5587 21.1213 20.1213C20.5587 20.6839 19.7957 21 19 21H5.00002C4.20437 21 3.44131 20.6839 2.8787 20.1213C2.31609 19.5587 2.00002 18.7957 2.00002 18V13.2776C1.99967 13.2623 1.99967 13.247 2.00002 13.2317V8C2.00002 7.20435 2.31609 6.44129 2.8787 5.87868C3.44131 5.31607 4.20437 5 5.00002 5H7.00002V4C7.00002 3.20435 7.31609 2.44129 7.8787 1.87868ZM9.00002 5H15V4C15 3.73478 14.8947 3.48043 14.7071 3.29289C14.5196 3.10536 14.2652 3 14 3H10C9.7348 3 9.48045 3.10536 9.29291 3.29289C9.10538 3.48043 9.00002 3.73478 9.00002 4V5ZM5.00002 7C4.7348 7 4.48045 7.10536 4.29291 7.29289C4.10538 7.48043 4.00002 7.73478 4.00002 8V12.5703C6.49099 13.4944 9.18498 14 12 14L12.0012 14C14.7331 14.0033 17.4418 13.5185 20 12.5701V8C20 7.73478 19.8947 7.48043 19.7071 7.29289C19.5196 7.10536 19.2652 7 19 7H5.00002ZM20 14.6915C17.4255 15.5602 14.7231 16.0033 11.9994 16C9.20278 15.9999 6.51277 15.54 4.00002 14.6918V18C4.00002 18.2652 4.10538 18.5196 4.29291 18.7071C4.48045 18.8946 4.7348 19 5.00002 19H19C19.2652 19 19.5196 18.8946 19.7071 18.7071C19.8947 18.5196 20 18.2652 20 18V14.6915ZM11 12C11 11.4477 11.4477 11 12 11H12.01C12.5623 11 13.01 11.4477 13.01 12C13.01 12.5523 12.5623 13 12.01 13H12C11.4477 13 11 12.5523 11 12Z"
-                                                        fill="inherit"></path>
-                                                </svg>
-                                                <p class="tw-font-bold tw-text-gray-600 tw-text-xs tw-leading-none">Nghề
-                                                    nghiệp</p>
-                                            </div>
-                                        </div>
-                                        <p class="item-content-title">Data type nào là tốt nhất để lưu URL?</p>
-                                        <div class="item-content-contact">
-                                            <div class="item-response">
-                                                <p class="item-response-text">
-                                                    <span>Trả lời</span>
-                                                    <span>2</span>
-                                                </p>
-                                            </div>
-                                            <p class="item-content-seen">
-                                                <span>Lượt xem</span>
-                                                <span>126</span>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -269,7 +207,8 @@
                     </button>
                 </div>
             </div>
-            <a href="/newest-posts" class="newest-posts-item">
+            @foreach ($newestPosts as $key => $value)
+            <a href="/qna/post/{{ $value['_id'] }}" class="newest-posts-item">
                 <div class="newest-posts-container">
                     <div class="newest-posts-category">
                         <svg width="12" height="12" stroke-width="0" viewBox="0 0 24 24" fill="current"
@@ -281,13 +220,10 @@
                         <p class="newest-posts-category-text">Nghề nghiệp</p>
                     </div>
                     <p class="newest-posts-title">
-                        <span class="newest-posts-title-text">Chuyện deal lương khi phỏng vấn</span>
+                        <span class="newest-posts-title-text">Approach Data</span></span>
                     </p>
                     <p class="newest-posts-content">
-                        Em vừa apply vị trí fresher mobile developer cho một công ty phần mềm và vừa được nhận thông báo
-                        interview. Trước đây em có thực tập 3 tháng ở một công ty và làm web + mobile với Vue, Flutter nhưng
-                        vì lương fresher fulltime bên đó offer cho em khá thấp nên em đã từ chối. Em muốn hỏi là nếu HR ở
-                        cty mới hỏi về lương cty cũ thì em phải trả lời như thế nào ?
+                        {{ $value['Content'] }}
                     </p>
                 </div>
                 <div class="newest-posts-tags">
@@ -322,17 +258,18 @@
                 <div class="newest-posts-contact">
                     <p class="newest-posts-contact-number">
                         <span class="newest-posts-contact-text">Trả lời&nbsp;
-                            <span>0</span></span>
+                            <span>{{ $value['Upvotes'] }}</span></span>
                     </p>
                     <p class="newest-posts-contact-last-seen">
                         <span>4 ngày trước</span>
                         <span>&nbsp;•&nbsp;</span>
                         <span>Lượt xem&nbsp;
-                            <span>19</span>
+                            <span>{{ $value['View'] }}</span>
                         </span>
                     </p>
                 </div>
             </a>
+            @endforeach
             <!-- end newest posts -->
         </div>
     </div>

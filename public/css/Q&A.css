@@ -158,7 +158,7 @@
     overscroll-behavior: contain;
     flex-direction: column;
     position: sticky;
-    height: 100vh;
+    height: calc(100% - 10%);
 }
 
 .new-question {
@@ -259,12 +259,11 @@ p {
     gap: 1.25rem;
     display: flex;
     position: relative;
-    overflow-wrap: anywhere;
-    word-break: keep-all;
     height: 176px;
 }
 
 .suggestion-posts-items {
+    touch-action: pan-y;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -275,12 +274,15 @@ p {
 }
 
 .suggestion-posts-wrapper {
-    transform: translateZ(0);
+    transition-duration: 0ms;
+    transform: translate3d(0px, 0px, 0px);
     position: relative;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     display: flex;
     transition-property: transform;
-    word-break: keep-all;
+    box-sizing: content-box;
 }
 
 .posts-item {

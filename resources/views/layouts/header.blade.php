@@ -52,7 +52,7 @@
                 <!-- toggle account menu box -->
                 <div id="acc-menu-div">
                     @if ($isLoggedin)
-                        <div class="box-button"><a href="/q&a/create-questions">Tạo câu hỏi</a></div>
+                        <div class="box-button"><a href="/qna/create-questions">Tạo câu hỏi</a></div>
                         <div class="box-button"><a href="/users/my-profile">Tài khoản</a></div>
                         <div class="box-button" id="logout"><a href="#" onclick="logoutAndRedirect()">Đăng
                                 xuất</a></div>
